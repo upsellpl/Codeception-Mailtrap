@@ -1,5 +1,5 @@
 {
-    "name": "whatdafox/codeception-mailtrap",
+    "name": "upsell/codeception-mailtrap",
     "description": "Mailtrap module for Codeception",
     "keywords": ["Codeception", "Mailtrap"],
     "type":"library",
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.4",
         "codeception/codeception": "*",
         "guzzlehttp/guzzle": "~6.0"
     },

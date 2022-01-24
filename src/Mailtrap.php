@@ -300,7 +300,7 @@ class Mailtrap extends Module
     public function seeInEmailSubject($expected)
     {
         $email = $this->fetchLastMessage();
-        $this->assertContains($expected, $email->subject, 'Email subject contains text');
+        $this->assertStringContainsString($expected, $email->subject, 'Email subject contains text');
     }
 
     /**
