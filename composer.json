@@ -13,7 +13,7 @@
     "require": {
         "php": ">=7.4",
         "codeception/codeception": "*",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~7.0"
     },
     "autoload": {
         "psr-4": {
