@@ -3,6 +3,7 @@
 namespace Codeception\Module;
 
 use Codeception\Module;
+use Codeception\TestInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Stream;
 use PHPUnit\Framework\Assert;
@@ -46,12 +47,12 @@ class Mailtrap extends Module
     /**
      * @var array
      */
-    protected $config = ['client_id' => null, 'inbox_id' => null, 'cleanup' => true];
+    protected array $config = ['client_id' => null, 'inbox_id' => null, 'cleanup' => true];
 
     /**
      * @var array
      */
-    protected $requiredFields = ['client_id', 'inbox_id'];
+    protected array $requiredFields = ['client_id', 'inbox_id'];
 
     /**
      * Initialize.
@@ -71,9 +72,9 @@ class Mailtrap extends Module
     /**
      * Clean the inbox after each scenario.
      *
-     * @param \Codeception\TestCase $test
+     * @param TestInterface $test
      */
-    public function _after(\Codeception\TestCase $test)
+    public function _after(TestInterface $test)
     {
         if ($this->config['cleanup']) {
             $this->cleanInbox();
@@ -300,7 +301,7 @@ class Mailtrap extends Module
     public function seeInEmailSubject($expected)
     {
         $email = $this->fetchLastMessage();
-        $this->assertContains($expected, $email->subject, 'Email subject contains text');
+        $this->assertStringContainsString($expected, $email->subject, 'Email subject contains text');
     }
 
     /**
